@@ -26,18 +26,18 @@
         tools:src="@drawable/dice_1"/>
 
     <Button
-        android:id="@+id/roll_button"
+        android:id="@+id/btn_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/roll_label"
+        android:text="@string/lbl_roll"
         android:backgroundTint="@color/colorPipGreen"/>
 
     <Button
-        android:id="@+id/clear_button"
+        android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/clear_label"
+        android:text="@string/lbl_clear"
         android:backgroundTint="@color/colorPipGreen"/>
 </LinearLayout>

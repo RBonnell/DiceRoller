@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Dice Roller</string>
-    <string name="roll_label">Roll</string>
-    <string name="count_label">Count Up</string>
-    <string name="reset_label">Reset</string>
-    <string name="clear_label">clear</string>
+    <string name="lbl_roll">Roll</string>
+    <string name="lbl_count">Count Up</string>
+    <string name="lbl_reset">Reset</string>
+    <string name="lbl_clear">Clear</string>
 </resources>
