@@ -5,26 +5,48 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
+const val KEY_DIE1 = "key_die1"
+const val KEY_DIE2 = "key_die2"
+
 class MainActivity : AppCompatActivity() {
 
-    lateinit var diceImage : ImageView
+    lateinit var diceImage1: ImageView
     lateinit var diceImage2: ImageView
+    private var storedDie1 = (R.drawable.empty_dice)
+    private var storedDie2 = (R.drawable.empty_dice)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        diceImage = findViewById(R.id.dice_image)
+        diceImage1 = findViewById(R.id.dice_image)
         diceImage2 = findViewById(R.id.dice_image2)
+
         val rollButton: Button = findViewById(R.id.btn_roll)
         rollButton.setOnClickListener { rollDice() }
         val clearButton: Button = findViewById(R.id.btn_clear)
         clearButton.setOnClickListener { clear() }
+
+        if (savedInstanceState != null) {
+            storedDie1 = savedInstanceState.getInt(KEY_DIE1)
+            storedDie2 = savedInstanceState.getInt(KEY_DIE2)
+        }
+
+        diceImage1.setImageResource(storedDie1)
+        diceImage2.setImageResource(storedDie2)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_DIE1, storedDie1)
+        outState.putInt(KEY_DIE2, storedDie2)
     }
 
     private fun rollDice() {
-        diceImage.setImageResource(getRandomDiceImage())
-        diceImage2.setImageResource(getRandomDiceImage())
+        storedDie1 = getRandomDiceImage()
+        storedDie2 = getRandomDiceImage()
+        diceImage1.setImageResource(storedDie1)
+        diceImage2.setImageResource(storedDie2)
     }
 
 
@@ -41,7 +63,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clear() {
-        diceImage.setImageResource(R.drawable.empty_dice)
+        diceImage1.setImageResource(R.drawable.empty_dice)
         diceImage2.setImageResource(R.drawable.empty_dice)
+        storedDie1 = (R.drawable.empty_dice)
+        storedDie2 = (R.drawable.empty_dice)
     }
 }
