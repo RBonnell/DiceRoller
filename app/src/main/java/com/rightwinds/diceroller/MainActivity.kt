@@ -10,8 +10,8 @@ const val KEY_DIE2 = "key_die2"
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var diceImage1: ImageView
-    lateinit var diceImage2: ImageView
+    private lateinit var diceImage1: ImageView
+    private lateinit var diceImage2: ImageView
     private var storedDie1 = (R.drawable.empty_dice)
     private var storedDie2 = (R.drawable.empty_dice)
 
